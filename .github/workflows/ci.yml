@@ -33,7 +33,7 @@ jobs:
       - name: Setup Testspace client
         uses: testspace-com/setup-testspace@v1
         with:
-          domain: ${{ github.repository_owner }}.stridespace.com
+          domain: samples.stridespace.com
 
       - name: Publish results to Testspace
         run: testspace test-results/junit/results.xml
