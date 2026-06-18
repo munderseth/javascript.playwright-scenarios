@@ -1,0 +1,28 @@
+name: Testspace
+run-name: ${{ fromJSON(inputs.context).spec.name }}
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Function name'
+        required: true
+      payload:
+        description: 'Function input-payload'
+        required: true
+      context:
+        description: 'Function execution-context'
+        required: true
+env:
+  IN_NAME:    ${{ inputs.name }}
+  IN_PAYLOAD: ${{ inputs.payload }}
+  IN_CONTEXT: ${{ inputs.context }}
+  #GITHUB_S2_TESTSPACE_TOKEN: ${{ secrets.GH_S2_TESTSPACE_TOKEN }} # Can not use "GITHUB_" to start a secret in UI
+jobs:
+  inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Inputs
+        run: |
+          echo name: $IN_NAME
+          echo payload: $IN_PAYLOAD
+          echo context: $IN_CONTEXT
