@@ -40,7 +40,7 @@ jobs:
         if: always()
         uses: testspace-com/setup-testspace@v1
         with:
-          domain: samples.stridespace.com
+          domain: munderseth.stridespace.com
 
       - name: Publish results to Testspace
         if: always()
