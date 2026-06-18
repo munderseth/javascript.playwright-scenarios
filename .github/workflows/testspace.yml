@@ -1,9 +1,17 @@
 name: Testspace
 run-name: ${{ fromJSON(inputs.context).spec.name }}
 on:
-  repository_dispatch:
-    types: [testspace]
-
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Function name'
+        required: true
+      payload:
+        description: 'Function input-payload'
+        required: true
+      context:
+        description: 'Function execution-context'
+        required: true
 env:
   IN_NAME:    ${{ inputs.name }}
   IN_PAYLOAD: ${{ inputs.payload }}
